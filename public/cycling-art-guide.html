@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>骑行旅行艺术攻略</title>
+  <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css">
+  <link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --secondary: #ffd600;
+      --danger: #e53935;
+      --card-radius: 1.25rem;
+      --card-padding: 1.2rem;
+      --card-gap: 1.1rem;
+      --font-main: 'Noto Sans SC', 'Noto Serif SC', sans-serif;
+    }
+    body {
+      font-family: var(--font-main);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #222;
+      min-height: 100vh;
+    }
+    .art-card {
+      border-radius: var(--card-radius);
+      box-shadow: 0 4px 24px 0 rgba(44,62,80,0.08);
+      background: #fff;
+      margin-bottom: var(--card-gap);
+      padding: var(--card-padding);
+      transition: box-shadow .2s;
+    }
+    .art-card:hover {
+      box-shadow: 0 8px 32px 0 rgba(44,62,80,0.16);
+    }
+    .gradient-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #43e97b 0%, #38f9d7 40%, #ffd600 70%, #e53935 100%);
+      margin-bottom: 1rem;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--secondary);
+      color: #222;
+      border-radius: 999px;
+      padding: 0.2em 0.9em;
+      font-size: 0.85em;
+      margin-right: 0.5em;
+      margin-bottom: 0.3em;
+    }
+    .score-badge {
+      font-weight: 700;
+      border-radius: 0.7em;
+      padding: 0.1em 0.7em;
+      margin-left: 0.5em;
+      background: #f1f8e9;
+      color: var(--primary);
+      font-size: 0.95em;
+    }
+    .facility-icon {
+      font-size: 1.5em;
+      margin-right: 0.5em;
+      color: var(--primary);
+    }
+    .heatmap-legend {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 0.95em;
+      margin-bottom: 0.5em;
+    }
+    .heatmap-color {
+      width: 32px;
+      height: 10px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .heatmap-green { background: #43e97b; }
+    .heatmap-yellow { background: #ffd600; }
+    .heatmap-red { background: #e53935; }
+    .profile-svg {
+      width: 100%;
+      height: 60px;
+      margin-top: 0.5em;
+    }
+    .eta {
+      font-size: 0.98em;
+      color: #666;
+      margin-left: 0.5em;
+    }
+    .main-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2.1em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--primary);
+      margin-bottom: 0.7em;
+      text-shadow: 0 2px 8px #e0f2f1;
+    }
+    @media (max-width: 480px) {
+      .main-title { font-size: 1.3em; }
+      .art-card { padding: 0.8rem; }
+    }
+  </style>
+</head>
+<body class="px-2 py-4 max-w-md mx-auto">
+  <div class="main-title text-center">骑行旅行艺术攻略</div>
+
+  <!-- 路线阶段卡片 -->
+  <div class="art-card">
+    <div class="text-lg font-bold mb-2 flex items-center">
+      <i class="fa-solid fa-route mr-2 text-green-700"></i>阶段一：西湖环湖路段
+      <span class="tag">8km</span>
+      <span class="tag">石板路60%+柏油路40%</span>
+      <span class="tag">推荐：避震前叉山地车</span>
+    </div>
+    <div class="mb-1 text-sm text-gray-600">景点：苏堤春晓、雷峰夕照</div>
+    <div class="gradient-bar"></div>
+    <div class="flex flex-wrap gap-2 text-sm">
+      <span>累计爬升：35m <span class="text-green-700">↑3%</span></span>
+      <span>体力指数：62</span>
+      <span>安全评分：<span class="score-badge">13/15</span></span>
+      <span>08:30-09:00 骑行4km(体力指数62) → 可衔接下个景点</span>
+    </div>
+  </div>
+
+  <!-- 路线阶段卡片2 -->
+  <div class="art-card">
+    <div class="text-lg font-bold mb-2 flex items-center">
+      <i class="fa-solid fa-mountain-sun mr-2 text-yellow-700"></i>阶段二：杨公堤段
+      <span class="tag">3km</span>
+      <span class="tag">柏油路100%</span>
+      <span class="tag">推荐：公路车</span>
+    </div>
+    <div class="mb-1 text-sm text-gray-600">景点：花港观鱼、三台云水</div>
+    <div class="gradient-bar"></div>
+    <div class="flex flex-wrap gap-2 text-sm">
+      <span>累计爬升：22m <span class="text-yellow-700">↑4%</span></span>
+      <span>体力指数：54</span>
+      <span>安全评分：<span class="score-badge">14/15</span></span>
+      <span>09:10-09:35 骑行3km(体力指数54) → 预计骑行22分钟（含2分钟坡度补偿）</span>
+    </div>
+  </div>
+
+  <!-- 体力分配与休息提示卡片 -->
+  <div class="art-card bg-green-50">
+    <div class="flex items-center mb-2">
+      <i class="fa-solid fa-bolt mr-2 text-yellow-500"></i>
+      <span class="font-semibold">体力分配建议</span>
+    </div>
+    <div class="text-sm mb-1">每体力指数≥80建议插入15分钟休息点，合理分配体能，避免疲劳。</div>
+    <div class="text-xs text-gray-500">能量消耗公式：(距离×1.2)+(爬升×5)=体力指数</div>
+  </div>
+
+  <!-- 安全系数评估卡片 -->
+  <div class="art-card bg-yellow-50">
+    <div class="flex items-center mb-2">
+      <i class="fa-solid fa-shield-halved mr-2 text-red-500"></i>
+      <span class="font-semibold">安全系数评估</span>
+    </div>
+    <div class="text-sm mb-1">道路质量：5分（专用骑行道）｜车流量：4分（隔离非机动车道）｜照明覆盖：4分（大部分路段有路灯）</div>
+    <div class="text-xs text-gray-500">综合评分低于12分将自动推荐替代路线，优先保障安全。</div>
+  </div>
+
+  <!-- 动态时间校准卡片 -->
+  <div class="art-card bg-blue-50">
+    <div class="flex items-center mb-2">
+      <i class="fa-solid fa-clock mr-2 text-blue-500"></i>
+      <span class="font-semibold">动态时间校准</span>
+    </div>
+    <div class="text-sm mb-1">平路：15km/h｜起伏路：12km/h｜爬坡：8km/h</div>
+    <div class="text-xs text-gray-500">时间计算：(距离/基准速度)×60+爬升耗时系数</div>
+    <div class="mt-1 text-sm">杨公堤段(3km)：预计骑行22分钟（含2分钟坡度补偿）</div>
+  </div>
+
+  <!-- 服务设施图层卡片 -->
+  <div class="art-card bg-gray-50">
+    <div class="flex items-center mb-2">
+      <i class="fa-solid fa-wrench facility-icon"></i>自行车维修点（≤5km间隔）
+      <i class="fa-solid fa-bottle-water facility-icon"></i>能量补给（每10km）
+      <i class="fa-solid fa-umbrella facility-icon"></i>紧急避难亭（暴雨路线）
+    </div>
+    <div class="text-xs text-gray-500">所有设施均已在地图热力图中高亮标注，便于快速定位。</div>
+  </div>
+
+  <!-- 可视化热力图卡片 -->
+  <div class="art-card bg-gradient-to-r from-green-100 via-yellow-100 to-red-100">
+    <div class="flex items-center mb-2">
+      <i class="fa-solid fa-fire-flame-curved mr-2 text-red-500"></i>
+      <span class="font-semibold">骑行难度热力图</span>
+    </div>
+    <div class="heatmap-legend">
+      <span class="heatmap-color heatmap-green"></span> 轻松
+      <span class="heatmap-color heatmap-yellow"></span> 中等
+      <span class="heatmap-color heatmap-red"></span> 挑战
+    </div>
+    <svg class="profile-svg" viewBox="0 0 320 60">
+      <polyline points="0,50 40,40 80,30 120,35 160,25 200,20 240,30 280,40 320,50" fill="none" stroke="#2e7d32" stroke-width="3"/>
+      <circle cx="40" cy="40" r="4" fill="#ffd600"/>
+      <circle cx="160" cy="25" r="4" fill="#e53935"/>
+      <circle cx="280" cy="40" r="4" fill="#43e97b"/>
+    </svg>
+    <div class="text-xs text-gray-500 mt-1">鼠标悬停显示详细参数，点击路段可切换备选路线。</div>
+  </div>
+
+  <!-- 约束与优化目标卡片 -->
+  <div class="art-card bg-white border border-gray-200">
+    <div class="flex items-center mb-2">
+      <i class="fa-solid fa-scale-balanced mr-2 text-gray-700"></i>
+      <span class="font-semibold">骑行约束与优化目标</span>
+    </div>
+    <ul class="list-disc pl-5 text-sm mb-1">
+      <li>单日总骑行距离：50-80km（休闲级）</li>
+      <li>最大连续骑行：≤90分钟</li>
+      <li>景点停留：≥30分钟/主要景点</li>
+      <li>行李负重：≤5kg（背包基础配置）</li>
+    </ul>
+    <div class="text-xs text-gray-500">优化排序：安全系数最大化 &gt; 体力消耗最小化 &gt; 景观丰富度优先 &gt; 文化体验深度</div>
+  </div>
+
+  <!-- 底部说明 -->
+  <div class="text-center text-xs text-gray-400 mt-6 mb-2">
+    本攻略可配合高德地图“骑行路书”功能验证，支持GPX导出与3D地形可视化。
+  </div>
+</body>
+</html>
